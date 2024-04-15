@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../VHDL_project.srcs/sources_1/new/7seg-decoder.vhd" \
+"../../../../VHDL_project.srcs/sources_1/new/clock.vhd" \
+"../../../../VHDL_project.srcs/sources_1/new/counter.vhd" \
+"../../../../VHDL_project.srcs/sources_1/new/main.vhd" \
+"../../../../VHDL_project.srcs/sources_1/new/stepper.vhd" \
+"../../../../VHDL_project.srcs/sim_1/new/tb_main.v" \
+
+# Do not sort compile order
+nosort

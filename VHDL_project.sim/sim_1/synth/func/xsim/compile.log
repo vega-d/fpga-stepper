@@ -1,0 +1,11 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.sim/sim_1/synth/func/xsim/cfg_tb_top_func_synth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'clock_enable'
+INFO: [VRFC 10-3107] analyzing entity 'counter'
+INFO: [VRFC 10-3107] analyzing entity '\counter__parameterized1\'
+INFO: [VRFC 10-3107] analyzing entity '\counter__parameterized3\'
+INFO: [VRFC 10-3107] analyzing entity '\counter__parameterized3_1\'
+INFO: [VRFC 10-3107] analyzing entity 'stepper'
+INFO: [VRFC 10-3107] analyzing entity 'stepper_0'
+INFO: [VRFC 10-3107] analyzing entity 'top'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sim_1/new/tb_main.v" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_top'
