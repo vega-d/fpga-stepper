@@ -32,7 +32,6 @@ entity top is
             LED       : out std_logic_vector(15 downto 0);
             clear     : in std_logic;
             save      : in std_logic;
-            switchnum : in std_logic_vector(3 downto 0);
             selectseg : out std_logic_vector(7 downto 0);
             dir_override: in std_logic_vector(1 downto 0);
             motor_enable : out std_logic;
@@ -53,6 +52,7 @@ signal register_enumirate : std_logic_vector(3 downto 0); -- selectseg
 signal register2 : std_logic_vector(31 downto 0); -- long term
 signal register3 : std_logic_vector(7 downto 0); -- long term
 signal register4 : std_logic_vector(7 downto 0); -- long term
+signal switchnum : std_logic_vector(3 downto 0);
 signal CLK100HZ    : std_logic;
 signal CLK200HZ    : std_logic;
 signal blink    : std_logic_vector(15 downto 0);
@@ -178,16 +178,20 @@ stepper2 : stepper
     );
     
 
-mover : process (add, reg1_motor1, reg2_motor1) is
+mover : process (save, reg1_motor1, reg2_motor1) is
 begin
     motor_enable <= not (reg2_motor1(0) or reg2_motor1(0)) nand input(0);
     if (reg2_motor1(0) = '0') then
         reg1_motor1(10) <= '0';
         reg_currentposition_motor1 <= reg1_motor1(7 downto 0);
     end if;
-    if (add = '1' and reg1_motor1(10) = '0') then
+    if (save = '1' and reg1_motor1(10) = '0') then
         reg1_motor1(10) <= '1';
-        reg1_motor2(9) <= '1' when reg_targetposition_motor1 > reg_currentposition_motor1 else '0';
+        if (reg_targetposition_motor1 > reg_currentposition_motor1) then
+            reg1_motor2(9) <= dir_override(0);
+        else
+            reg1_motor2(9) <= not dir_override(0);
+        end if;
         reg1_motor1(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor1))-to_integer(unsigned(reg_currentposition_motor1)), 8));
     else 
         reg1_motor1(7 downto 0) <= reg1_motor1(7 downto 0);
@@ -197,9 +201,13 @@ begin
         reg1_motor2(10) <= '0';
         reg_currentposition_motor2 <= reg1_motor2(7 downto 0);
     end if;
-    if (add = '1' and reg1_motor2(10) = '0') then -- we go here if the stepper reports NOT BUSY and MOVE COMMAND IS ISSUED--
+    if (save = '1' and reg1_motor2(10) = '0') then -- we go here if the stepper reports NOT BUSY and MOVE COMMAND IS ISSUED--
         reg1_motor2(10) <= '1';
-        reg1_motor2(9) <= '1' when reg_targetposition_motor2 > reg_currentposition_motor2 else '0'; 
+        if reg_targetposition_motor2 > reg_currentposition_motor2 then
+            reg1_motor2(9) <= dir_override(1);
+        else
+            reg1_motor2(9) <= not dir_override(1);
+        end if; 
         reg1_motor2(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))-to_integer(unsigned(reg_currentposition_motor2)), 8));
     else 
         reg1_motor2(7 downto 0) <= reg1_motor2(7 downto 0);
@@ -209,6 +217,17 @@ begin
     LED(LED'LEFT downto (LED'LEFT-register3'LENGTH+1)) <= register3;
     LED(7 downto 0) <= reg1_motor1(7 downto 0);
 end process mover;
+
+selecter : process (left, right) is
+begin
+    if rising_edge(right) then
+        switchnum <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))+1, 3));
+    elsif rising_edge(left) then
+        switchnum <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))-1, 3));
+    else
+        switchnum <= switchnum;
+    end if;
+end process selecter;
 
 number_saver : process (save, clear) is 
 begin
