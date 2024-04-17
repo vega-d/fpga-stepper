@@ -70,6 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 2
 set_param checkpoint.writeSynthRtdsInDcp 1
 set_param synth.incrementalSynthesisCache ./.Xil/Vivado-1383935-carrie/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000

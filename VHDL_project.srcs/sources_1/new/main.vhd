@@ -52,7 +52,7 @@ signal register_enumirate : std_logic_vector(3 downto 0); -- selectseg
 signal register2 : std_logic_vector(31 downto 0); -- long term
 signal register3 : std_logic_vector(7 downto 0); -- long term
 signal register4 : std_logic_vector(7 downto 0); -- long term
-signal switchnum : std_logic_vector(3 downto 0);
+signal switchnum : std_logic_vector(2 downto 0);
 signal CLK100HZ    : std_logic;
 signal CLK200HZ    : std_logic;
 signal blink    : std_logic_vector(15 downto 0);
@@ -218,11 +218,13 @@ begin
     LED(7 downto 0) <= reg1_motor1(7 downto 0);
 end process mover;
 
-selecter : process (left, right) is
+selecter : process (left, right, clear) is
 begin
-    if rising_edge(right) then
+    if (clear = '1') then
+        switchnum <= (others => '0');
+    elsif (right = '1' and blink(8) = '1') then
         switchnum <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))+1, 3));
-    elsif rising_edge(left) then
+    elsif (left = '1' and blink(8) = '1') then
         switchnum <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))-1, 3));
     else
         switchnum <= switchnum;
@@ -236,49 +238,49 @@ begin
         register2 <= "00000000000000000000000000000000";
       elsif (save = '1') then
         case switchnum is
-          when x"0" =>
+          when "000" =>
 --            selectseg(0) <= '0'; 
             register2(0) <= input (0);
             register2(1) <= input (1);
             register2(2) <= input (2);
             register2(3) <= input (3);
-          when x"1" =>
+          when "001" =>
 --            selectseg(1) <= '0'; 
             register2(4) <= input (0);
             register2(5) <= input (1);
             register2(6) <= input (2);
             register2(7) <= input (3);
-          when x"2" =>
+          when "010" =>
 --            selectseg(2) <= '0';
             register2(8) <= input (0);
             register2(9) <= input (1);
             register2(10) <= input (2);
             register2(11) <= input (3);
-          when x"3" =>
+          when "011" =>
 --            selectseg(3) <= '0';
             register2(12) <= input (0);
             register2(13) <= input (1);
             register2(14) <= input (2);
             register2(15) <= input (3);
-          when x"4" =>
+          when "100" =>
 --            selectseg(4) <= '0';
             register2(16) <= input (0);
             register2(17) <= input (1);
             register2(18) <= input (2);
             register2(19) <= input (3);
-          when x"5" =>
+          when "101" =>
 --            selectseg(5) <= '0';
             register2(20) <= input (0);
             register2(21) <= input (1);
             register2(22) <= input (2);
             register2(23) <= input (3);
-          when x"6" =>
+          when "110" =>
 --            selectseg(6) <= '0';
             register2(24) <= input (0);
             register2(25) <= input (1);
             register2(26) <= input (2);
             register2(27) <= input (3);
-          when x"7" =>
+          when "111" =>
 --            selectseg(7) <= '0';
             register2(28) <= input (0);
             register2(29) <= input (1);

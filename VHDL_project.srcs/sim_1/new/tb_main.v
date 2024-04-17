@@ -16,7 +16,7 @@ architecture tb of tb_top is
               LED          : out std_logic_vector (15 downto 0);
               clear        : in std_logic;
               save         : in std_logic;
-              switchnum    : in std_logic_vector (2 downto 0);
+              dir_override : in std_logic_vector(1 downto 0);
               selectseg    : out std_logic_vector (7 downto 0);
               motor_enable : out std_logic;
               m1_dir       : out std_logic;
@@ -34,7 +34,6 @@ architecture tb of tb_top is
     signal LED          : std_logic_vector (15 downto 0);
     signal clear        : std_logic;
     signal save         : std_logic;
-    signal switchnum    : std_logic_vector (3 downto 0);
     signal selectseg    : std_logic_vector (7 downto 0);
     signal motor_enable : std_logic;
     signal m1_dir       : std_logic;
@@ -44,9 +43,11 @@ architecture tb of tb_top is
     signal add          : std_logic;
     signal left         : std_logic;
     signal right        : std_logic;
+    signal dir_override : std_logic_vector(1 downto 0);
     signal CLK100MHZ    : std_logic;
 
-    constant TbPeriod : time := 1000 ns; -- EDIT Put right period here
+
+    constant TbPeriod : time := 10 ns; -- EDIT Put right period here
     signal TbClock : std_logic := '0';
     signal TbSimEnded : std_logic := '0';
 
@@ -58,9 +59,9 @@ begin
               LED          => LED,
               clear        => clear,
               save         => save,
-              switchnum(2 downto 0)=> switchnum,
               selectseg    => selectseg,
               motor_enable => motor_enable,
+              dir_override => dir_override, 
               m1_dir       => m1_dir,
               m1_step      => m1_step,
               m2_dir       => m2_dir,
@@ -81,11 +82,10 @@ begin
         -- EDIT Adapt initialization as needed
         input <= (others => '0');
         save <= '0';
-        switchnum <= "000";
         add <= '0';
         left <= '0';
         right <= '0';
-
+        dir_override <= "00";
         -- Reset generation
         -- EDIT: Check that clear is really your reset signal
         clear <= '1';
@@ -94,33 +94,31 @@ begin
         wait for 100 ns;
 
         -- input first number
-        switchnum <= "0001"; -- motor 1, decimal 2
         input <= "0010"; -- twenty steps
         wait for 100 * TbPeriod;
         
-        -- save into memory
+        -- save into memory & execute
         save <= '1';
         wait for 100 * TbPeriod;
         save <= '0';
         wait for 100 * TbPeriod;
         
         -- input second number
-        switchnum <= "0100"; -- motor 2, decimal 1
+        for i in 0 to 3 loop
+            left <= '1';
+            wait for 100 * TbPeriod;
+            left <= '0';
+            wait for 100 * TbPeriod;
+        end loop;
         input <= "0011"; -- three steps
         wait for 100 * TbPeriod;
         
-        -- save into memory
+        -- save into memory & execute
         save <= '1';
         wait for 100 * TbPeriod;
         save <= '0';
         wait for 100 * TbPeriod;
-        
-        -- execute
-        add <= '1';
-        wait for 100 * TbPeriod;
-        add <= '0';
-        wait for 100 * TbPeriod;
-        
+                
         
 
         -- Stop the clock and hence terminate the simulation
