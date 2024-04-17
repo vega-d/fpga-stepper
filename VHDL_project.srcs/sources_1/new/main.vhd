@@ -34,6 +34,7 @@ entity top is
             save      : in std_logic;
             switchnum : in std_logic_vector(3 downto 0);
             selectseg : out std_logic_vector(7 downto 0);
+            dir_override: in std_logic_vector(1 downto 0);
             motor_enable : out std_logic;
             m1_dir    : out std_logic;
             m1_step   : out std_logic;
@@ -59,6 +60,10 @@ signal reg1_motor1    : std_logic_vector(15 downto 0);
 signal reg2_motor1    : std_logic_vector(15 downto 0);
 signal reg1_motor2    : std_logic_vector(15 downto 0);
 signal reg2_motor2    : std_logic_vector(15 downto 0);
+signal reg_currentposition_motor1: std_logic_vector(7 downto 0);
+signal reg_currentposition_motor2: std_logic_vector(7 downto 0);
+signal reg_targetposition_motor1: std_logic_vector(7 downto 0);
+signal reg_targetposition_motor2: std_logic_vector(7 downto 0);
 
 --signal input    : std_logic_vector(3 downto 0);
 --constant COUNTER_WIDTH : integer := 16; --! Simulating number of bits
@@ -178,24 +183,24 @@ begin
     motor_enable <= not (reg2_motor1(0) or reg2_motor1(0)) nand input(0);
     if (reg2_motor1(0) = '0') then
         reg1_motor1(10) <= '0';
+        reg_currentposition_motor1 <= reg1_motor1(7 downto 0);
     end if;
     if (add = '1' and reg1_motor1(10) = '0') then
         reg1_motor1(10) <= '1';
-        reg1_motor1(9) <= input(1);
-        reg1_motor1(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(register2(11 downto 8))) * 100 + to_integer(unsigned(register2(7 downto 4))) * 10 + to_integer(unsigned(register2(3 downto 0))), 8));
---        by the nine this line here ^^^ is fucked.
+        reg1_motor2(9) <= '1' when reg_targetposition_motor1 > reg_currentposition_motor1 else '0';
+        reg1_motor1(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor1))-to_integer(unsigned(reg_currentposition_motor1)), 8));
     else 
         reg1_motor1(7 downto 0) <= reg1_motor1(7 downto 0);
     end if;
     
-    if (reg2_motor2(0) = '0') then
+    if (reg2_motor2(0) = '0') then -- we go here if the stepper reports NOT BUSY --
         reg1_motor2(10) <= '0';
+        reg_currentposition_motor2 <= reg1_motor2(7 downto 0);
     end if;
-    if (add = '1' and reg1_motor2(10) = '0') then
+    if (add = '1' and reg1_motor2(10) = '0') then -- we go here if the stepper reports NOT BUSY and MOVE COMMAND IS ISSUED--
         reg1_motor2(10) <= '1';
-        reg1_motor2(9) <= input(2);
-        reg1_motor2(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(register2(11+16 downto 8+16))) * 100 + to_integer(unsigned(register2(7+16 downto 4+16))) * 10 + to_integer(unsigned(register2(3+16 downto 0+16))), 8));
---        by the nine this line here ^^^ is fucked.
+        reg1_motor2(9) <= '1' when reg_targetposition_motor2 > reg_currentposition_motor2 else '0'; 
+        reg1_motor2(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))-to_integer(unsigned(reg_currentposition_motor2)), 8));
     else 
         reg1_motor2(7 downto 0) <= reg1_motor2(7 downto 0);
     end if;
@@ -263,6 +268,9 @@ begin
           when others =>
             null;
         end case;
+        reg_targetposition_motor1 <= std_logic_vector(to_unsigned(to_integer(unsigned(register2(11 downto 8))) * 100 + to_integer(unsigned(register2(7 downto 4))) * 10 + to_integer(unsigned(register2(3 downto 0))), 8));
+        reg_targetposition_motor2 <= std_logic_vector(to_unsigned(to_integer(unsigned(register2(11+16 downto 8+16))) * 100 + to_integer(unsigned(register2(7+16 downto 4+16))) * 10 + to_integer(unsigned(register2(3+16 downto 0+16))), 8));
+        --        by the nine this line here ^^^ is fucked.
       else 
         register2 <= register2;  
       end if;    
