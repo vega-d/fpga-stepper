@@ -11,7 +11,7 @@
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source top.tcl -notrace
-create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1528.758 ; gain = 0.023 ; free physical = 2705 ; free virtual = 46253
+create_project: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1528.758 ; gain = 0.023 ; free physical = 2532 ; free virtual = 46133
 Command: read_checkpoint -auto_incremental -incremental /home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/utils_1/imports/synth_1/compare_2bit.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from /home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/utils_1/imports/synth_1/compare_2bit.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -24,30 +24,30 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 1475853
+INFO: [Synth 8-7075] Helper process launched with PID 1485701
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2215.637 ; gain = 404.715 ; free physical = 1748 ; free virtual = 45296
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2215.574 ; gain = 404.715 ; free physical = 1635 ; free virtual = 45238
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'top' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:49]
-INFO: [Synth 8-3491] module 'bin2seg' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/7seg-decoder.vhd:14' bound to instance 'display' of component 'bin2seg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:116]
+INFO: [Synth 8-638] synthesizing module 'top' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:47]
+INFO: [Synth 8-3491] module 'bin2seg' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/7seg-decoder.vhd:14' bound to instance 'display' of component 'bin2seg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:115]
 INFO: [Synth 8-638] synthesizing module 'bin2seg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/7seg-decoder.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'bin2seg' (0#1) [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/7seg-decoder.vhd:20]
 	Parameter PERIOD bound to: 200000 - type: integer 
-INFO: [Synth 8-3491] module 'clock_enable' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/clock.vhd:6' bound to instance 'mid_clock' of component 'clock_enable' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:123]
+INFO: [Synth 8-3491] module 'clock_enable' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/clock.vhd:6' bound to instance 'mid_clock' of component 'clock_enable' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:122]
 INFO: [Synth 8-638] synthesizing module 'clock_enable' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/clock.vhd:16]
 	Parameter PERIOD bound to: 200000 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_enable' (0#1) [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/clock.vhd:16]
 	Parameter N bound to: 3 - type: integer 
-INFO: [Synth 8-3491] module 'counter' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:35' bound to instance 'counter_selectseg' of component 'counter' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:133]
+INFO: [Synth 8-3491] module 'counter' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:35' bound to instance 'counter_selectseg' of component 'counter' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:132]
 INFO: [Synth 8-638] synthesizing module 'counter' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:46]
 	Parameter N bound to: 3 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'counter' (0#1) [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:46]
 	Parameter N bound to: 16 - type: integer 
-INFO: [Synth 8-3491] module 'counter' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:35' bound to instance 'counter_blink' of component 'counter' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:143]
+INFO: [Synth 8-3491] module 'counter' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:35' bound to instance 'counter_blink' of component 'counter' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:142]
 INFO: [Synth 8-638] synthesizing module 'counter__parameterized1' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:46]
 	Parameter N bound to: 16 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'counter__parameterized1' (0#1) [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:46]
-INFO: [Synth 8-3491] module 'stepper' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:37' bound to instance 'stepper1' of component 'stepper' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:154]
+INFO: [Synth 8-3491] module 'stepper' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:37' bound to instance 'stepper1' of component 'stepper' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:153]
 INFO: [Synth 8-638] synthesizing module 'stepper' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:51]
 	Parameter N bound to: 8 - type: integer 
 INFO: [Synth 8-3491] module 'counter' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/counter.vhd:35' bound to instance 'countdown' of component 'counter' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:68]
@@ -59,43 +59,44 @@ WARNING: [Synth 8-614] signal 'enable' is read in the process but is not in the 
 WARNING: [Synth 8-614] signal 'direction' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:78]
 WARNING: [Synth 8-614] signal 'clock' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:78]
 INFO: [Synth 8-256] done synthesizing module 'stepper' (0#1) [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:51]
-INFO: [Synth 8-3491] module 'stepper' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:37' bound to instance 'stepper2' of component 'stepper' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:167]
-WARNING: [Synth 8-614] signal 'input' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'reg_targetposition_motor1' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'reg_currentposition_motor1' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'dir_override' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'reg2_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'reg1_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'reg_targetposition_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'reg_currentposition_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:181]
-WARNING: [Synth 8-614] signal 'register3' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:217]
-WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:217]
-WARNING: [Synth 8-614] signal 'blink' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:224]
-WARNING: [Synth 8-614] signal 'reg_targetposition_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:224]
-WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:224]
-INFO: [Synth 8-226] default block is never used [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:243]
-WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:237]
-WARNING: [Synth 8-614] signal 'input' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:237]
-WARNING: [Synth 8-614] signal 'register2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:237]
-INFO: [Synth 8-226] default block is never used [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:308]
-WARNING: [Synth 8-614] signal 'register_enumirate' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:304]
-WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:304]
-WARNING: [Synth 8-614] signal 'register2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:304]
-INFO: [Synth 8-256] done synthesizing module 'top' (0#1) [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:49]
+INFO: [Synth 8-3491] module 'stepper' declared at '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:37' bound to instance 'stepper2' of component 'stepper' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:166]
+WARNING: [Synth 8-614] signal 'input' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:180]
+WARNING: [Synth 8-614] signal 'reg_targetposition_motor1' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:180]
+WARNING: [Synth 8-614] signal 'reg_currentposition_motor1' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:180]
+WARNING: [Synth 8-614] signal 'reg2_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:180]
+WARNING: [Synth 8-614] signal 'reg1_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:180]
+WARNING: [Synth 8-614] signal 'reg_targetposition_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:180]
+WARNING: [Synth 8-614] signal 'reg_currentposition_motor2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:180]
+WARNING: [Synth 8-614] signal 'register3' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:216]
+WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:216]
+WARNING: [Synth 8-614] signal 'input' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:223]
+WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:223]
+INFO: [Synth 8-226] default block is never used [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:277]
+WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:271]
+WARNING: [Synth 8-614] signal 'input' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:271]
+WARNING: [Synth 8-614] signal 'register2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:271]
+INFO: [Synth 8-226] default block is never used [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:342]
+WARNING: [Synth 8-614] signal 'register_enumirate' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:338]
+WARNING: [Synth 8-614] signal 'switchnum' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:338]
+WARNING: [Synth 8-614] signal 'register2' is read in the process but is not in the sensitivity list [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:338]
+INFO: [Synth 8-256] done synthesizing module 'top' (0#1) [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:47]
+WARNING: [Synth 8-7129] Port sw[16] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port add in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port left in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port right in module top is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2292.605 ; gain = 481.684 ; free physical = 1646 ; free virtual = 45195
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2291.543 ; gain = 480.684 ; free physical = 1532 ; free virtual = 45129
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2307.449 ; gain = 496.527 ; free physical = 1646 ; free virtual = 45195
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2303.418 ; gain = 492.559 ; free physical = 1532 ; free virtual = 45128
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2307.449 ; gain = 496.527 ; free physical = 1646 ; free virtual = 45195
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2303.418 ; gain = 492.559 ; free physical = 1532 ; free virtual = 45128
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2307.449 ; gain = 0.000 ; free physical = 1646 ; free virtual = 45195
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2303.418 ; gain = 0.000 ; free physical = 1541 ; free virtual = 45138
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -106,41 +107,42 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2454.199 ; gain = 0.000 ; free physical = 1613 ; free virtual = 45185
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2451.168 ; gain = 0.000 ; free physical = 1550 ; free virtual = 45141
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2454.234 ; gain = 0.000 ; free physical = 1612 ; free virtual = 45184
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2451.203 ; gain = 0.000 ; free physical = 1550 ; free virtual = 45141
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1593 ; free virtual = 45161
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1561 ; free virtual = 45140
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a50ticsg324-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1593 ; free virtual = 45161
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1561 ; free virtual = 45140
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1593 ; free virtual = 45161
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1561 ; free virtual = 45140
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-327] inferring latch for variable 'dir_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:90]
 WARNING: [Synth 8-327] inferring latch for variable 'internal_clear_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/stepper.vhd:73]
-WARNING: [Synth 8-327] inferring latch for variable 'switchnum_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:227]
-WARNING: [Synth 8-327] inferring latch for variable 'register2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:241]
-WARNING: [Synth 8-327] inferring latch for variable 'reg_targetposition_motor2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:296]
-WARNING: [Synth 8-327] inferring latch for variable 'reg1_motor1_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:156]
-WARNING: [Synth 8-327] inferring latch for variable 'reg1_motor2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:169]
-WARNING: [Synth 8-327] inferring latch for variable 'reg_currentposition_motor1_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:186]
-WARNING: [Synth 8-327] inferring latch for variable 'reg_targetposition_motor1_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:295]
-WARNING: [Synth 8-327] inferring latch for variable 'reg_currentposition_motor2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:202]
+WARNING: [Synth 8-327] inferring latch for variable 'switchnum_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:253]
+WARNING: [Synth 8-327] inferring latch for variable 'input_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:227]
+WARNING: [Synth 8-327] inferring latch for variable 'register2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:275]
+WARNING: [Synth 8-327] inferring latch for variable 'reg1_motor1_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:155]
+WARNING: [Synth 8-327] inferring latch for variable 'reg1_motor2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:168]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_currentposition_motor1_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:185]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_targetposition_motor1_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:329]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_currentposition_motor2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:201]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_targetposition_motor2_reg' [/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sources_1/new/main.vhd:330]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1593 ; free virtual = 45154
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1591 ; free virtual = 45143
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -149,7 +151,7 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input    8 Bit       Adders := 2     
 	   3 Input    8 Bit       Adders := 2     
-	   2 Input    3 Bit       Adders := 3     
+	   2 Input    3 Bit       Adders := 1     
 +---Registers : 
 	               16 Bit    Registers := 1     
 	                8 Bit    Registers := 4     
@@ -161,8 +163,11 @@ Detailed RTL Component Info :
 	   2 Input   16 Bit        Muxes := 4     
 	   3 Input    8 Bit        Muxes := 8     
 	  17 Input    7 Bit        Muxes := 1     
-	   2 Input    3 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 4     
+	  12 Input    4 Bit        Muxes := 1     
+	   8 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 1     
+	   8 Input    1 Bit        Muxes := 1     
+	  12 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -184,28 +189,31 @@ WARNING: [Synth 8-7129] Port LED[7] in module top is either unconnected or has n
 WARNING: [Synth 8-7129] Port LED[6] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port LED[5] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port LED[4] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port sw[16] in module top is either unconnected or has no load
 WARNING: [Synth 8-7129] Port add in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port left in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port right in module top is either unconnected or has no load
 WARNING: [Synth 8-3332] Sequential element (stepper1/dir_reg) is unused and will be removed from module top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1569 ; free virtual = 45135
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1560 ; free virtual = 45116
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1618 ; free virtual = 45170
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1517 ; free virtual = 45122
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1618 ; free virtual = 45170
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1550 ; free virtual = 45158
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1618 ; free virtual = 45170
+Finished Technology Mapping : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1550 ; free virtual = 45156
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -223,37 +231,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -271,46 +279,46 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     2|
 |2     |CARRY4 |    24|
-|3     |LUT1   |     6|
-|4     |LUT2   |    45|
+|3     |LUT1   |     5|
+|4     |LUT2   |    48|
 |5     |LUT3   |    11|
-|6     |LUT4   |    33|
+|6     |LUT4   |    35|
 |7     |LUT5   |    27|
-|8     |LUT6   |    30|
+|8     |LUT6   |    33|
 |9     |MUXF7  |     4|
 |10    |FDRE   |    68|
-|11    |LD     |    54|
-|12    |LDC    |    35|
-|13    |IBUF   |    11|
+|11    |LD     |    61|
+|12    |LDC    |    32|
+|13    |IBUF   |    19|
 |14    |OBUF   |    32|
 |15    |OBUFT  |     4|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 18 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 2454.234 ; gain = 496.527 ; free physical = 1654 ; free virtual = 45206
-Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2454.234 ; gain = 643.312 ; free physical = 1654 ; free virtual = 45206
+Synthesis finished with 0 errors, 0 critical warnings and 22 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2451.203 ; gain = 492.559 ; free physical = 1518 ; free virtual = 45141
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:24 . Memory (MB): peak = 2451.203 ; gain = 640.344 ; free physical = 1518 ; free virtual = 45141
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2454.234 ; gain = 0.000 ; free physical = 1874 ; free virtual = 45426
-INFO: [Netlist 29-17] Analyzing 117 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 3 CPU seconds
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2451.203 ; gain = 0.000 ; free physical = 1612 ; free virtual = 45235
+INFO: [Netlist 29-17] Analyzing 121 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2454.234 ; gain = 0.000 ; free physical = 1931 ; free virtual = 45482
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2451.203 ; gain = 0.000 ; free physical = 1785 ; free virtual = 45431
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 89 instances were transformed.
-  LD => LDCE: 54 instances
-  LDC => LDCE: 35 instances
+  A total of 93 instances were transformed.
+  LD => LDCE: 61 instances
+  LDC => LDCE: 32 instances
 
-Synth Design complete | Checksum: 42b9ca4c
+Synth Design complete | Checksum: 7d36ea2e
 INFO: [Common 17-83] Releasing license: Synthesis
-44 Infos, 42 Warnings, 0 Critical Warnings and 0 Errors encountered.
+44 Infos, 47 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:28 . Memory (MB): peak = 2454.234 ; gain = 925.477 ; free physical = 1930 ; free virtual = 45482
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1793.452; main = 1464.591; forked = 378.518
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4037.504; main = 2454.203; forked = 1615.316
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2478.211 ; gain = 0.000 ; free physical = 1930 ; free virtual = 45482
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:28 . Memory (MB): peak = 2451.203 ; gain = 922.445 ; free physical = 1785 ; free virtual = 45431
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1794.012; main = 1464.102; forked = 378.513
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4034.477; main = 2451.172; forked = 1615.320
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2475.180 ; gain = 0.000 ; free physical = 1785 ; free virtual = 45431
 INFO: [Common 17-1381] The checkpoint '/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.runs/synth_1/top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 17 16:30:19 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 17 16:46:15 2024...

@@ -27,13 +27,11 @@ library ieee;
 
 entity top is
       port (seg       : out std_logic_vector(6 downto 0);
-          input    : in std_logic_vector(3 downto 0);
---            b     : in std_logic_vector(3 downto 0);
+            sw        : in std_logic_vector(16 downto 0);
             LED       : out std_logic_vector(15 downto 0);
             clear     : in std_logic;
             save      : in std_logic;
             selectseg : out std_logic_vector(7 downto 0);
-            dir_override: in std_logic_vector(1 downto 0);
             motor_enable : out std_logic;
             m1_dir    : out std_logic;
             m1_step   : out std_logic;
@@ -53,6 +51,7 @@ signal register2 : std_logic_vector(31 downto 0); -- long term
 signal register3 : std_logic_vector(7 downto 0); -- long term
 signal register4 : std_logic_vector(7 downto 0); -- long term
 signal switchnum : std_logic_vector(2 downto 0);
+signal input    : std_logic_vector(3 downto 0);
 signal CLK100HZ    : std_logic;
 signal CLK200HZ    : std_logic;
 signal blink    : std_logic_vector(15 downto 0);
@@ -188,9 +187,9 @@ begin
     if (save = '1' and reg1_motor1(10) = '0') then
         reg1_motor1(10) <= '1';
         if (reg_targetposition_motor1 > reg_currentposition_motor1) then
-            reg1_motor2(9) <= dir_override(0);
+            reg1_motor2(9) <= '1';
         else
-            reg1_motor2(9) <= not dir_override(0);
+            reg1_motor2(9) <= '0';
         end if;
         reg1_motor1(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor1))-to_integer(unsigned(reg_currentposition_motor1)), 8));
     else 
@@ -204,9 +203,9 @@ begin
     if (save = '1' and reg1_motor2(10) = '0') then -- we go here if the stepper reports NOT BUSY and MOVE COMMAND IS ISSUED--
         reg1_motor2(10) <= '1';
         if reg_targetposition_motor2 > reg_currentposition_motor2 then
-            reg1_motor2(9) <= dir_override(1);
+            reg1_motor2(9) <= '1';
         else
-            reg1_motor2(9) <= not dir_override(1);
+            reg1_motor2(9) <= '0';
         end if; 
         reg1_motor2(7 downto 0) <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))-to_integer(unsigned(reg_currentposition_motor2)), 8));
     else 
@@ -221,17 +220,52 @@ begin
     LED(3) <= blink(8);
 end process leds;
 
-selecter : process (left, right, clear) is
+selecter : process (sw) is
 begin
-    if (clear = '1') then
-        switchnum <= (others => '0');
-    elsif (right = '1' and blink(8) = '1') then
-        switchnum <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))+1, 3));
-    elsif (left = '1' and blink(8) = '1') then
-        switchnum <= std_logic_vector(to_unsigned(to_integer(unsigned(reg_targetposition_motor2))-1, 3));
-    else
-        switchnum <= switchnum;
-    end if;
+    case sw(9 downto 0) is
+        when "0000000000" =>
+            input <= x"0";
+        when "0000000001" =>
+            input <= x"0";
+        when "0000000010" =>
+            input <= x"1";
+        when "0000000100" =>
+            input <= x"2";
+        when "0000001000" =>
+            input <= x"3";
+        when "0000010000" =>
+            input <= x"4";
+        when "0000100000" =>
+            input <= x"5";
+        when "0001000000" =>
+            input <= x"6";
+        when "0010000000" =>
+            input <= x"7";
+        when "0100000000" =>
+            input <= x"8";
+        when "1000000000" =>
+            input <= x"9";
+        when others =>
+            input <= input;
+    end case;
+    case sw(15 downto 10) is
+        when "000000" =>
+            switchnum <= "000";     
+        when "000001" =>
+            switchnum <= "000";     
+        when "000010" =>
+            switchnum <= "001";     
+        when "000100" =>
+            switchnum <= "010";     
+        when "001000" =>
+            switchnum <= "100";     
+        when "010000" =>
+            switchnum <= "101";     
+        when "100000" =>
+            switchnum <= "110";     
+        when others => 
+            switchnum <= switchnum;
+    end case;
 end process selecter;
 
 number_saver : process (save, clear) is 

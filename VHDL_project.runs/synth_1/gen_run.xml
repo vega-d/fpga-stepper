@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a50ticsg324-1L" LaunchTime="1713364179" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/compare_2bit.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a50ticsg324-1L" LaunchTime="1713365135" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/compare_2bit.dcp">
   <File Type="VDS-TIMINGSUMMARY" Name="top_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="top.dcp"/>
   <File Type="RDS-UTIL-PB" Name="top_utilization_synth.pb"/>
