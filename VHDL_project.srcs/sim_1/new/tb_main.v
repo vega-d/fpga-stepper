@@ -1,6 +1,6 @@
 -- Testbench automatically generated online
 -- at https://vhdl.lapinoo.net
--- Generation date : 15.4.2024 09:12:52 UTC
+-- Generation date : 17.4.2024 14:01:22 UTC
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -16,8 +16,8 @@ architecture tb of tb_top is
               LED          : out std_logic_vector (15 downto 0);
               clear        : in std_logic;
               save         : in std_logic;
-              dir_override : in std_logic_vector(1 downto 0);
               selectseg    : out std_logic_vector (7 downto 0);
+              dir_override : in std_logic_vector (1 downto 0);
               motor_enable : out std_logic;
               m1_dir       : out std_logic;
               m1_step      : out std_logic;
@@ -35,6 +35,7 @@ architecture tb of tb_top is
     signal clear        : std_logic;
     signal save         : std_logic;
     signal selectseg    : std_logic_vector (7 downto 0);
+    signal dir_override : std_logic_vector (1 downto 0);
     signal motor_enable : std_logic;
     signal m1_dir       : std_logic;
     signal m1_step      : std_logic;
@@ -43,9 +44,7 @@ architecture tb of tb_top is
     signal add          : std_logic;
     signal left         : std_logic;
     signal right        : std_logic;
-    signal dir_override : std_logic_vector(1 downto 0);
     signal CLK100MHZ    : std_logic;
-
 
     constant TbPeriod : time := 10 ns; -- EDIT Put right period here
     signal TbClock : std_logic := '0';
@@ -60,8 +59,8 @@ begin
               clear        => clear,
               save         => save,
               selectseg    => selectseg,
+              dir_override => dir_override,
               motor_enable => motor_enable,
-              dir_override => dir_override, 
               m1_dir       => m1_dir,
               m1_step      => m1_step,
               m2_dir       => m2_dir,
@@ -89,35 +88,35 @@ begin
         -- Reset generation
         -- EDIT: Check that clear is really your reset signal
         clear <= '1';
-        wait for 100 ns;
+        wait for TbPeriod;
         clear <= '0';
-        wait for 100 ns;
+        wait for TbPeriod;
 
         -- input first number
         input <= "0010"; -- twenty steps
-        wait for 100 * TbPeriod;
+        wait for TbPeriod;
         
         -- save into memory & execute
         save <= '1';
-        wait for 100 * TbPeriod;
+        wait for TbPeriod;
         save <= '0';
-        wait for 100 * TbPeriod;
+        wait for TbPeriod;
         
         -- input second number
         for i in 0 to 3 loop
             left <= '1';
-            wait for 100 * TbPeriod;
+            wait for TbPeriod;
             left <= '0';
-            wait for 100 * TbPeriod;
+            wait for TbPeriod;
         end loop;
         input <= "0011"; -- three steps
-        wait for 100 * TbPeriod;
+        wait for TbPeriod;
         
         -- save into memory & execute
         save <= '1';
-        wait for 100 * TbPeriod;
+        wait for TbPeriod;
         save <= '0';
-        wait for 100 * TbPeriod;
+        wait for TbPeriod;
                 
         
 

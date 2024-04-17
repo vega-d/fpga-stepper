@@ -48,7 +48,7 @@ end top;
 
 architecture behavioral of top is
 signal register1 : std_logic_vector(3 downto 0); -- short term
-signal register_enumirate : std_logic_vector(3 downto 0); -- selectseg
+signal register_enumirate : std_logic_vector(2 downto 0); -- selectseg
 signal register2 : std_logic_vector(31 downto 0); -- long term
 signal register3 : std_logic_vector(7 downto 0); -- long term
 signal register4 : std_logic_vector(7 downto 0); -- long term
@@ -131,7 +131,7 @@ mid_clock : clock_enable
     );
 
 counter_selectseg : counter generic map (
-    N => 4
+    N => 3
     )
     port map (
         clk => CLK200HZ,
@@ -212,11 +212,14 @@ begin
     else 
         reg1_motor2(7 downto 0) <= reg1_motor2(7 downto 0);
     end if;
-
-
-    LED(LED'LEFT downto (LED'LEFT-register3'LENGTH+1)) <= register3;
-    LED(7 downto 0) <= reg1_motor1(7 downto 0);
 end process mover;
+
+leds : process (blink) is
+begin
+    LED(LED'LEFT downto (LED'LEFT-register3'LENGTH+1)) <= register3;
+    LED(2 downto 0) <= switchnum;
+    LED(3) <= blink(8);
+end process leds;
 
 selecter : process (left, right, clear) is
 begin
@@ -303,8 +306,8 @@ r2_to_r1_demux_clocked : process (CLK100MHZ, blink) is
 begin      
 --    LED(LED'LEFT downto (LED'LEFT-blink'LENGTH+1)) <= blink;
     case register_enumirate is
-      when x"0" =>     -- x"0" means "0000" in hexadec.
-          if (switchnum = x"0") then
+      when "000" =>     -- x"0" means "0000" in hexadec.
+          if (switchnum = "000") then
             if blink(8) = '1' then
                 selectseg <= not "00000001";
 
@@ -318,8 +321,8 @@ begin
           register1(1) <= register2(1);
           register1(2) <= register2(2);
           register1(3) <= register2(3);
-      when x"1" =>     -- x"0" means "0000" in hexadec.
-          if (switchnum = x"1") then
+      when "001" =>     -- x"0" means "0000" in hexadec.
+          if (switchnum = "001") then
             if blink(8) = '1' then
                 selectseg <= not "00000010";
             else
@@ -332,8 +335,8 @@ begin
           register1(1) <= register2(5);
           register1(2) <= register2(6);
           register1(3) <= register2(7);
-      when x"2" =>     -- x"0" means "0000" in hexadec.
-          if (switchnum = x"2") then
+      when "010" =>     -- x"0" means "0000" in hexadec.
+          if (switchnum = "010") then
             if blink(8) = '1' then
                 selectseg <= not "00000100";
             else
@@ -347,9 +350,9 @@ begin
           register1(1) <= register2(9);
           register1(2) <= register2(10);
           register1(3) <= register2(11);
-      when x"3" =>     -- x"0" means "0000" in hexadec.
+      when "011" =>     -- x"0" means "0000" in hexadec.
 
-          if (switchnum = x"3") then
+          if (switchnum = "011") then
             if blink(8) = '1' then
                 selectseg <= not "00001000";
 
@@ -364,8 +367,8 @@ begin
         register1(1) <= register2(13);
         register1(2) <= register2(14);
         register1(3) <= register2(15);
-      when x"4" =>     -- x"0" means "0000" in hexadec.
-          if (switchnum = x"4") then
+      when "100" =>     -- x"0" means "0000" in hexadec.
+          if (switchnum = "100") then
             if blink(8) = '1' then
                 selectseg <= not "00010000";
             else
@@ -378,8 +381,8 @@ begin
         register1(1) <= register2(17);
         register1(2) <= register2(18);
         register1(3) <= register2(19);
-      when x"5" =>     -- x"0" means "0000" in hexadec.
-        if (switchnum = x"5") then
+      when "101" =>     -- x"0" means "0000" in hexadec.
+        if (switchnum = "101") then
             if blink(8) = '1' then
                 selectseg <= not "00100000";
 
@@ -393,8 +396,8 @@ begin
         register1(1) <= register2(21);
         register1(2) <= register2(22);
         register1(3) <= register2(23);
-      when x"6" =>     -- x"0" means "0000" in hexadec.
-        if (switchnum = x"6") then
+      when "110" =>     -- x"0" means "0000" in hexadec.
+        if (switchnum = "110") then
             if blink(8) = '1' then
                 selectseg <= not "01000000";
 
@@ -408,8 +411,8 @@ begin
         register1(1) <= register2(25);
         register1(2) <= register2(26);
         register1(3) <= register2(27);
-      when x"7" =>     -- x"0" means "0000" in hexadec.
-        if (switchnum = x"7") then
+      when "111" =>     -- x"0" means "0000" in hexadec.
+        if (switchnum = "111") then
             if blink(8) = '1' then
                 selectseg <= not "10000000";
 

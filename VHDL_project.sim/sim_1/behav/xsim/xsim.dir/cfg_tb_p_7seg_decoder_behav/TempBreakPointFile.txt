@@ -1,2 +1,0 @@
-Breakpoint File Version 1.0
-96,true,"/home/vega/projects/vutbr/VHDL_project/VHDL_project/VHDL_project.srcs/sim_1/new/tb_main.v"
