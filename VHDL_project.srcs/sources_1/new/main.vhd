@@ -179,7 +179,7 @@ stepper2 : stepper
 
 mover : process (save, reg1_motor1, reg2_motor1) is
 begin
-    motor_enable <= not (reg2_motor1(0) or reg2_motor1(0)) nand input(0);
+    motor_enable <= not(not (reg2_motor1(0) or reg2_motor1(0)) nand input(0));
     if (reg2_motor1(0) = '0') then
         reg1_motor1(10) <= '0';
         reg_currentposition_motor1 <= reg1_motor1(7 downto 0);
